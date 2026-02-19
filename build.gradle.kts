@@ -24,6 +24,7 @@ dependencies {
         testFramework(TestFrameworkType.Platform)
     }
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("junit:junit:4.13.2")
 }
 
 tasks.test {
