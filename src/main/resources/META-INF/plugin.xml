@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>de.explore.claude-review</id>
+    <name>Claude Review</name>
+    <vendor>Explore GmbH</vendor>
+    <version>1.0.0</version>
+    <description><![CDATA[
+        AI-powered code review on save via Claude CLI.
+        Runs claude -p on unstaged git diffs and shows findings
+        as inline editor annotations with gutter icons.
+    ]]></description>
+
+    <idea-version since-build="231"/>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <externalAnnotator
+            language=""
+            implementationClass="de.explore.claudereview.annotator.ClaudeReviewAnnotator"/>
+
+        <projectService
+            serviceImplementation="de.explore.claudereview.settings.ClaudeReviewSettings"/>
+
+        <projectConfigurable
+            instance="de.explore.claudereview.settings.ClaudeReviewConfigurable"
+            displayName="Claude Review"
+            parentId="tools"/>
+    </extensions>
+</idea-plugin>
