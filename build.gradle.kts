@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.11.0"
 }
 
-group = "de.explore"
+group = "io.github.kmscheuer"
 version = "1.0.0"
 
 kotlin { jvmToolchain(17) }

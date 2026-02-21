@@ -1,13 +1,40 @@
 <idea-plugin>
-    <id>de.explore.claude-review</id>
+    <id>io.github.kmscheuer.claude-review</id>
     <name>Claude Review</name>
-    <vendor>Explore GmbH</vendor>
+    <vendor email="kmscheuer@users.noreply.github.com" url="https://github.com/kmscheuer/intellij-claude-review">kmscheuer</vendor>
     <version>1.0.0</version>
     <description><![CDATA[
-        AI-powered code review on save via Claude CLI.
-        Runs claude -p on unstaged git diffs and shows findings
-        as inline editor annotations with gutter icons.
+        <h2>AI-Powered Code Review on Save</h2>
+        <p>Claude Review runs <a href="https://claude.ai/code">Claude Code</a> on your unstaged git diffs
+        every time you save a file, showing findings as inline editor annotations with gutter icons.</p>
+
+        <h3>Features</h3>
+        <ul>
+            <li>Automatic review on file save via the Claude CLI (<code>claude -p</code>)</li>
+            <li>Inline annotations with severity-based underlines (bug, warning, info)</li>
+            <li>Gutter icons for quick visual scanning</li>
+            <li>Content-hash caching to avoid redundant API calls</li>
+            <li>Configurable review prompt with <code>${FILE}</code> and <code>${PROJECT}</code> variables</li>
+            <li>Per-project enable/disable toggle</li>
+            <li>Customizable severity mapping</li>
+        </ul>
+
+        <h3>Requirements</h3>
+        <ul>
+            <li><a href="https://claude.ai/code">Claude Code CLI</a> installed</li>
+            <li>Git-tracked project</li>
+        </ul>
     ]]></description>
+
+    <change-notes><![CDATA[
+        <h3>1.0.0</h3>
+        <ul>
+            <li>Initial release</li>
+            <li>ExternalAnnotator-based code review on save</li>
+            <li>Configurable prompt, timeout, severity mapping</li>
+            <li>Content-hash caching</li>
+        </ul>
+    ]]></change-notes>
 
     <idea-version since-build="231"/>
     <depends>com.intellij.modules.platform</depends>
@@ -15,13 +42,13 @@
     <extensions defaultExtensionNs="com.intellij">
         <externalAnnotator
             language=""
-            implementationClass="de.explore.claudereview.annotator.ClaudeReviewAnnotator"/>
+            implementationClass="io.github.kmscheuer.claudereview.annotator.ClaudeReviewAnnotator"/>
 
         <projectService
-            serviceImplementation="de.explore.claudereview.settings.ClaudeReviewSettings"/>
+            serviceImplementation="io.github.kmscheuer.claudereview.settings.ClaudeReviewSettings"/>
 
         <projectConfigurable
-            instance="de.explore.claudereview.settings.ClaudeReviewConfigurable"
+            instance="io.github.kmscheuer.claudereview.settings.ClaudeReviewConfigurable"
             displayName="Claude Review"
             parentId="tools"/>
     </extensions>
