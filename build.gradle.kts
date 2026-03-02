@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.kmscheuer"
-version = "1.0.0"
+version = "1.0.1"
 
 kotlin { jvmToolchain(17) }
 
@@ -36,6 +36,11 @@ intellijPlatform {
         name = "Claude Review"
         ideaVersion {
             sinceBuild = "231"
+        }
+    }
+    pluginVerification {
+        ides {
+            recommended()
         }
     }
 }

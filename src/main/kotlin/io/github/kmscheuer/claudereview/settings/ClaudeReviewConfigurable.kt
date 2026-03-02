@@ -1,8 +1,9 @@
 package io.github.kmscheuer.claudereview.settings
 
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
+import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.TextBrowseFolderListener
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel
@@ -15,12 +16,11 @@ class ClaudeReviewConfigurable(private val project: Project) : Configurable {
 
     private val enabledCheckbox = JBCheckBox("Enable Claude Review for this project")
     private val claudePathField = TextFieldWithBrowseButton().apply {
-        addBrowseFolderListener(
-            "Select Claude CLI",
-            "Path to the claude executable",
-            project,
-            FileChooserDescriptorFactory.createSingleFileDescriptor()
-        )
+        val descriptor = FileChooserDescriptor(true, false, false, false, false, false).apply {
+            title = "Select Claude CLI"
+            description = "Path to the claude executable"
+        }
+        addBrowseFolderListener(TextBrowseFolderListener(descriptor, project))
     }
     private val timeoutField = JBTextField()
     private val bugSeverityCombo = createSeverityCombo()

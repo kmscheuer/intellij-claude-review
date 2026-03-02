@@ -1,6 +1,10 @@
 # Claude Review - IntelliJ Plugin
 
+[![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/30307-claude-review.svg)](https://plugins.jetbrains.com/plugin/30307-claude-review)
+
 AI-powered code review on every file save. Runs [Claude Code](https://claude.ai/code) on your unstaged git diffs and shows findings as inline editor annotations with gutter icons.
+
+**[Install from JetBrains Marketplace](https://plugins.jetbrains.com/plugin/30307-claude-review)**
 
 ## Features
 

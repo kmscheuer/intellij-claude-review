@@ -2,7 +2,7 @@
     <id>io.github.kmscheuer.claude-review</id>
     <name>Claude Review</name>
     <vendor email="kmscheuer@users.noreply.github.com" url="https://github.com/kmscheuer/intellij-claude-review">kmscheuer</vendor>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description><![CDATA[
         <h2>AI-Powered Code Review on Save</h2>
         <p>Claude Review runs <a href="https://claude.ai/code">Claude Code</a> on your unstaged git diffs
@@ -27,6 +27,11 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <h3>1.0.1</h3>
+        <ul>
+            <li>Replace deprecated APIs flagged by Plugin Verifier (addBrowseFolderListener, createSingleFileDescriptor)</li>
+            <li>Add pluginVerification config with recommended IDE set</li>
+        </ul>
         <h3>1.0.0</h3>
         <ul>
             <li>Initial release</li>
